@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - SantoSneakers</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h2>Gestión de Usuarios</h2>
+    <form id="crearUsuarioForm">
+        <input type="text" id="nombre" placeholder="Nombre completo" required>
+        <input type="email" id="email" placeholder="Correo" required>
+        <input type="text" id="telefono" placeholder="Teléfono" required>
+        <input type="text" id="direccion" placeholder="Dirección" required>
+        <select id="rol" required>
+            <option value="vendedor">Vendedor</option>
+            <option value="admin">Administrador</option>
+        </select>
+        <button type="submit">Crear Usuario</button>  
+    </form>
+    <script src="../js/adminPanel.js"></script>
+</body>
+</html>
