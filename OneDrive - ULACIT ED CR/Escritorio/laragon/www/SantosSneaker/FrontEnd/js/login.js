@@ -1,10 +1,9 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    // Validación básica para evitar campos vacíos
     if (!email || !password) {
         alert("Por favor, completa todos los campos");
         return;
@@ -19,6 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(data => {
         if (data.message === "Inicio de sesión exitoso") {
             alert("Bienvenido, " + data.user.nombre);
+
             if (data.user.rol === "admin") {
                 window.location.href = "panelAdmin.html";
             } else if (data.user.rol === "vendedor") {

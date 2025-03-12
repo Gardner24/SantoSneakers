@@ -5,45 +5,39 @@ header("Content-Type: application/json");
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Validar que se reciban correctamente los datos
-if (!$data) {
-    echo json_encode(["message" => "Error: No se recibieron datos válidos"]);
-    exit;
-}
-
-$nombre = $data['nombre'] ?? null;
 $email = $data['email'] ?? null;
-$telefono = $data['telefono'] ?? null;
-$direccion = $data['direccion'] ?? null;
-$rol = $data['rol'] ?? 'cliente';
+$password = $data['password'] ?? null;
 
-// Validación de datos
-if (!$nombre || !$email || !$rol) {
+if (!$email || !$password) {
     echo json_encode(["message" => "Por favor, completa todos los campos"]);
     exit;
 }
 
-// Generar contraseña automáticamente para vendedores y administradores
-if ($rol === 'vendedor' || $rol === 'admin') {
-    $password = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
-} elseif ($rol === 'cliente') {
-    $password = $data['password'] ?? null;
-    
-    if (!$password) {
-        echo json_encode(["message" => "Por favor, ingrese una contraseña válida para el cliente"]);
+try {
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        echo json_encode(["message" => "Usuario no encontrado"]);
         exit;
     }
-} else {
-    echo json_encode(["message" => "Rol no válido"]);
-    exit;
-}
 
-try {
-    $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email, telefono, direccion, password, rol) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$nombre, $email, $telefono, $direccion, $password, $rol]);
-
-    echo json_encode(["message" => "$rol registrado correctamente", "password" => $password]);
+    // Comparar la contraseña
+    if ($password === $user['password']) {
+        echo json_encode([
+            "message" => "Inicio de sesión exitoso",
+            "user" => [
+                "nombre" => $user['nombre'],
+                "telefono" => $user['telefono'],
+                "direccion" => $user['direccion'],
+                "rol" => $user['rol']
+            ]
+        ]);
+    } else {
+        echo json_encode(["message" => "Contraseña incorrecta"]);
+    }
 } catch (Exception $e) {
-    echo json_encode(["message" => "Error al registrar usuario: " . $e->getMessage()]);
+    echo json_encode(["message" => "Error en el inicio de sesión: " . $e->getMessage()]);
 }
 ?>
