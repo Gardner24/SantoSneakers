@@ -7,6 +7,11 @@ document.getElementById('registroForm').addEventListener('submit', function(even
     const direccion = document.getElementById('direccion').value;
     const password = document.getElementById('password').value;
 
+    if (!nombre || !email || !telefono || !direccion || !password) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
     fetch("http://localhost/SantosSneaker/backend/usuarios.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
