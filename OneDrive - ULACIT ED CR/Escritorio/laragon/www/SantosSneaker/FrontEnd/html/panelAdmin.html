@@ -1,24 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Usuarios - SantoSneakers</title>
-    <link rel="stylesheet" href="../css/estilos.css">
-</head>
-<body>
-    <h2>Gestión de Usuarios</h2>
-    <form id="crearUsuarioForm">
-        <input type="text" id="nombre" placeholder="Nombre completo" required>
-        <input type="email" id="email" placeholder="Correo" required>
-        <input type="text" id="telefono" placeholder="Teléfono" required>
-        <input type="text" id="direccion" placeholder="Dirección" required>
-        <select id="rol" required>
-            <option value="vendedor">Vendedor</option>
-            <option value="admin">Administrador</option>
-        </select>
-        <button type="submit">Crear Usuario</button>  
-    </form>
-    <script src="../js/adminPanel.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <title>Login Page | Caged coder</title>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up">
+        <form>
+          <h2>Vendedor</h2>
+          <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+          <span>Recuerda llenar todos los espacios correctamente</span>
+          <input type="text" id= "nombre" placeholder="Nombre Completo" />
+          <input type="email" id="email" placeholder="Email" />
+          <input type ="text" id="telefono" placeholder="Telefono" />
+          <input type="text" id="direccion" placeholder="Direccion" />
+          <input type="hidden" name="rol" value="vendedor" />
+          <button type="submit" >Registrar Vendedor</button>
+        </form>
+      </div>
+      <div class="form-container sign-in">
+        <form>
+          <h1>Regitra al Admin</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
+            <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+          <span>Recuerda llenar todos los espacios correctamente</span>
+         <input type="text" id= "nombre" placeholder="Nombre Completo" />
+          <input type="email" id="emaiA" placeholder="Email" />
+          <input type ="text" id="telefonA" placeholder="Telefono" />
+          <input type="text" id="direccioA" placeholder="Direccion" />
+          <input type="hidden" name="rol" value="admin" />
+          <button type="submit" value="admin">Regitrar Admin</button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="login">Registrar administrador?</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Hola, Admin</h1>
+            <p>
+              Registra al vendedor y empieza a vender!!!
+            </p>
+            <button class="hidden" id="register">Registrar vendedor?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="adminPanel.js"></script>
+  </body>
 </html>
