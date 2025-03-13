@@ -47,7 +47,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 12px; 
+    padding: 13px; 
     margin-bottom: 15px;
     border: none;
     border-radius: 8px;
@@ -62,8 +62,8 @@ input:focus {
 }
 
 button {
-    width: 100%;
-    padding: 12px;
+    width: 105%;
+    padding: 13px;
     background-color: #5A7D58;
     border: none;
     border-radius: 8px;
