@@ -84,6 +84,33 @@ button:hover {
     color: #d0d0d0;
 }
 
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff; 
+}
+
+.register-link a {
+    color: #4CAF50; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+.brand-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; 
+    text-transform: uppercase;
+}
+
+
 /* Animaciones */
 @keyframes fadeInDown {
     from {

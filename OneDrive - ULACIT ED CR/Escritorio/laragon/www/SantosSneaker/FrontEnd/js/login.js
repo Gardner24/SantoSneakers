@@ -1,8 +1,8 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
     if (!email || !password) {
         alert("Por favor, completa todos los campos");
@@ -14,21 +14,27 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === "Inicio de sesión exitoso") {
-            alert("Bienvenido, " + data.user.nombre);
-
-            if (data.user.rol === "admin") {
-                window.location.href = "panelAdmin.html";
-            } else if (data.user.rol === "vendedor") {
-                window.location.href = "panelVendedor.html";
+    .then(response => response.text())  
+    .then(text => {
+        console.log("Respuesta completa del servidor:", text); 
+        try {
+            const data = JSON.parse(text);
+            if (data.message === "Inicio de sesión exitoso") {
+                alert("Bienvenido, " + data.user.nombre);
+                if (data.user.rol === "admin") {
+                    window.location.href = "panelAdmin.html";
+                } else if (data.user.rol === "vendedor") {
+                    window.location.href = "panelVendedor.html";
+                } else {
+                    window.location.href = "index.php";
+                }
             } else {
-                window.location.href = "index.php";
+                alert(data.message);
             }
-        } else {
-            alert(data.message);
+        } catch (error) {
+            console.error("Error al analizar JSON:", error);
         }
     })
     .catch(error => console.error("Error en el inicio de sesión:", error));
+     
 });

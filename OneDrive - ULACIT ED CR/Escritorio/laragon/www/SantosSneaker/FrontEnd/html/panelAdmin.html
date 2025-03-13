@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
     <link rel="stylesheet" href="../css/admin.css" />
-    <title>Login Page | Caged coder</title>
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <title>Registro de Administradores y Vendedores | SantoSneakers</title>
+</head>
 
-  <body>
+<body>
     <div class="container" id="container">
-      <div class="form-container sign-up">
-        <form>
-          <h2>Vendedor</h2>
-          <div class="social-icons">
-            <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
-          </div>
-          <span>Recuerda llenar todos los espacios correctamente</span>
-          <input type="text" id= "nombre" placeholder="Nombre Completo" />
-          <input type="email" id="email" placeholder="Email" />
-          <input type ="text" id="telefono" placeholder="Telefono" />
-          <input type="text" id="direccion" placeholder="Direccion" />
-          <input type="hidden" name="rol" value="vendedor" />
-          <button type="submit" >Registrar Vendedor</button>
-        </form>
-      </div>
-      <div class="form-container sign-in">
-        <form>
-          <h1>Regitra al Admin</h1>
-          <div class="social-icons">
-            <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
-            <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
-          </div>
-          <span>Recuerda llenar todos los espacios correctamente</span>
-         <input type="text" id= "nombre" placeholder="Nombre Completo" />
-          <input type="email" id="emaiA" placeholder="Email" />
-          <input type ="text" id="telefonA" placeholder="Telefono" />
-          <input type="text" id="direccioA" placeholder="Direccion" />
-          <input type="hidden" name="rol" value="admin" />
-          <button type="submit" value="admin">Regitrar Admin</button>
-        </form>
-      </div>
-      <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>Welcome Back!</h1>
-            <p>Enter your personal details to use all of site features</p>
-            <button class="hidden" id="login">Registrar administrador?</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>Hola, Admin</h1>
-            <p>
-              Registra al vendedor y empieza a vender!!!
-            </p>
-            <button class="hidden" id="register">Registrar vendedor?</button>
-          </div>
+        <!-- Formulario de Registro de Vendedor -->
+        <div class="form-container sign-up">
+            <form id="vendedorForm">
+                <h2>Registrar Vendedor</h2>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <span>Recuerda llenar todos los espacios correctamente</span>
+                <input type="text" id="nombreVendedor" placeholder="Nombre Completo" required />
+                <input type="email" id="emailVendedor" placeholder="Email" required />
+                <input type="text" id="telefonoVendedor" placeholder="Teléfono" required />
+                <input type="text" id="direccionVendedor" placeholder="Dirección" required />
+                <input type="hidden" id="rolVendedor" value="vendedor" />
+                <button type="submit">Registrar Vendedor</button>
+            </form>
         </div>
-      </div>
+
+        <!-- Formulario de Registro de Administrador -->
+        <div class="form-container sign-in">
+            <form id="adminForm">
+                <h2>Registrar al Admin</h2>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <span>Recuerda llenar todos los espacios correctamente</span>
+                <input type="text" id="nombreAdmin" placeholder="Nombre Completo" required />
+                <input type="email" id="emailAdmin" placeholder="Email" required />
+                <input type="text" id="telefonoAdmin" placeholder="Teléfono" required />
+                <input type="text" id="direccionAdmin" placeholder="Dirección" required />
+                <input type="hidden" id="rolAdmin" value="admin" />
+                <button type="submit">Registrar Admin</button>
+            </form>
+        </div>
+
+        <!-- Panel de alternancia -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Registrar administrador?</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hola, Admin</h1>
+                    <p>
+                        Registra al vendedor y empieza a vender!!!
+                    </p>
+                    <button class="hidden" id="register">Registrar vendedor?</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="adminPanel.js"></script>
-  </body>
+    <script src="../js/adminPanel.js"></script>
+</body>
 </html>

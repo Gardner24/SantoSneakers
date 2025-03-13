@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario</title>
+    <title>Registro de Usuario | SantoSneakers</title>
     <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
@@ -11,6 +11,10 @@
     <div class="registro-container">
         <h2>SantoRegistro</h2>
         <p>Para ser parte de SantoSneakers, realizar registro y obtendrás acceso a la compra de artículos</p>
+        
+        <!-- Mensaje Flotante para Feedback -->
+        <div id="mensajeContainer" class="mensaje-container"></div>
+
         <form id="registroForm">
             <input type="text" id="nombre" placeholder="Nombre de usuario" required>
             <input type="email" id="email" placeholder="Correo" required>
@@ -18,11 +22,10 @@
             <input type="text" id="direccion" placeholder="Dirección" required>
             <input type="password" id="password" placeholder="Contraseña" required>
 
-            <!-- Campo oculto para enviar el rol como "cliente" -->
             <input type="hidden" id="rol" value="cliente">
-
             <button type="submit">Registrar</button>
         </form>
+
         <p class="terms">By signing up you agree to our <br> <a href="#">Terms & Conditions</a></p>
     </div>
 
