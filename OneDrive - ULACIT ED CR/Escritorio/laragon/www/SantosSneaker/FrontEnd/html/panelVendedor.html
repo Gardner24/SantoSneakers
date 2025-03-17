@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../css/vendedor.css"> <!-- Ruta corregida -->
+    <title>Registro de Productos | SantoSneakers</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Formulario de Registro de Producto -->
+        <div class="form-container product-form">
+            <form id="productForm">
+                <h2>Registrar Producto</h2>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-solid fa-globe"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-money-bill"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-check"></i></a>
+                    <a href="#" class="icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+                <span>Recuerda llenar todos los espacios correctamente</span>
+                <input type="text" id="nombreProducto" placeholder="Nombre del Producto" required />
+                <input type="text" id="categoriaProducto" placeholder="Categoría del Producto" required />
+                <input type="number" id="precioProducto" placeholder="Precio del Producto" required />
+                <input type="text" id="tipoProducto" placeholder="Tipo de Producto" required />
+                <input type="number" id="cantidadProducto" placeholder="Cantidad" required />
+                <button type="button" id="agregarOtroProducto">Agregar este y otro producto</button> <!-- Texto del botón actualizado -->
+                <button type="submit">Registrar Producto(s)</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Script personalizado -->
+    <script src="../js/vendedorPanel.js"></script> <!-- Ruta corregida -->
+</body>
+</html>
