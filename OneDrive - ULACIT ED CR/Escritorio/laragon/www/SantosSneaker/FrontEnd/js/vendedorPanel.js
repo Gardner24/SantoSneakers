@@ -1,7 +1,7 @@
-// Array para almacenar los productos
+
 let productos = [];
 
-// Función para agregar un producto al array
+
 function agregarProducto() {
     const nombre = document.getElementById('nombreProducto').value.trim();
     const categoria = document.getElementById('categoriaProducto').value.trim();
@@ -17,7 +17,7 @@ function agregarProducto() {
             text: 'El producto se ha agregado correctamente.',
             confirmButtonText: 'Aceptar'
         });
-        document.getElementById('productForm').reset(); // Limpiar el formulario
+        document.getElementById('productForm').reset(); 
     } else {
         Swal.fire({
             icon: 'error',
@@ -28,10 +28,10 @@ function agregarProducto() {
     }
 }
 
-// Función para registrar todos los productos
+
 function registrarProductos() {
     if (productos.length > 0) {
-        // Simulación de envío al servidor (puedes reemplazar esto con tu lógica de fetch)
+        
         fetch("http://localhost/SantosSneaker/backend/productos.php", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -46,7 +46,7 @@ function registrarProductos() {
                     text: 'Los productos se han registrado exitosamente.',
                     confirmButtonText: 'Aceptar'
                 });
-                productos = []; // Limpiar el array después del registro
+                productos = []; 
             } else {
                 Swal.fire({
                     icon: 'error',
@@ -75,10 +75,10 @@ function registrarProductos() {
     }
 }
 
-// Evento para agregar otro producto
+
 document.getElementById('agregarOtroProducto').addEventListener('click', agregarProducto);
 
-// Evento para registrar productos
+
 document.getElementById('productForm').addEventListener('submit', function(event) {
     event.preventDefault();
     registrarProductos();
