@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/admin.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    <title>Registro de Administradores y Vendedores | SantoSneakers</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registro de Administradores y Vendedores | SantoSneakers</title>
+        <link rel="stylesheet" href="../css/admin.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    </head>
 
 <body>
     <div class="container" id="container">
@@ -54,21 +54,63 @@
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Registrar administrador?</button>
+                    <h1>Hola, de nuevo!!</h1>
+                    <p>Registre un nuevo vendedor!</p>
+                    <button class="hidden" id="login">Quieres registrar un administrador?</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hola, Admin</h1>
                     <p>
-                        Registra al vendedor y empieza a vender!!!
+                        Registre un nuevo administrador!
                     </p>
-                    <button class="hidden" id="register">Registrar vendedor?</button>
+                    <button class="hidden" id="register">Quieres registrar un vendedor?</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="user-management-container">
+    <h2>Gestión de Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaUsuarios"></tbody>
+    </table>
+</div>
+
+<div class="historial-container">
+    <h2>Historial de Registro de Productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Registro</th>
+                <th>Vendedor</th>
+                <th>Producto</th>
+                <th>Cantidad Agregada</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody id="tablaHistorial"></tbody>
+    </table>
+</div>
+
+<div class="logout-button">
+    <button id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i>
+    </button>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/adminPanel.js"></script>
 </body>
 </html>

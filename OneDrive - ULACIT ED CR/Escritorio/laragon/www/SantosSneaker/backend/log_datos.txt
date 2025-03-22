@@ -1,0 +1,43 @@
+Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [nombre] => noob
+            [email] => admin@santosneakers.com
+            [telefono] => 12345678
+            [direccion] => Oficina Central
+            [rol] => admin
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [nombre] => Cristobal colon
+            [email] => Cristobalc@hotmail.com
+            [telefono] => 89765463
+            [direccion] => San jose, tibas
+            [rol] => cliente
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [nombre] => Staff
+            [email] => staff@santosneakers.com
+            [telefono] => 87607623
+            [direccion] => Oficina Central
+            [rol] => admin
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [nombre] => Mateo bianchi
+            [email] => Mbianchi@hotmail.com
+            [telefono] => 78538654
+            [direccion] => Barcelona, Vilanova Del Camí, Comandante Izarduy 57
+            [rol] => vendedor
+        )
+
+)

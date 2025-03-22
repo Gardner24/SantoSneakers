@@ -3,16 +3,16 @@ require_once "../Conexion/db.php";
 
 header("Content-Type: application/json");
 
-// Limpia cualquier salida previa para evitar errores en la respuesta JSON
+// Para limpiar las salidas
 ob_clean();
 ob_start();
 
-// Capturar datos del JSON recibido
+
 $data = json_decode(file_get_contents("php://input"), true);
 
-file_put_contents("log_datos.txt", print_r($data, true)); // Esto genera un archivo log para verificar los datos
+file_put_contents("log_datos.txt", print_r($data, true)); // Verificacion de datos en archivo loog_datos.txt
 
-// **Inicio de sesión**
+// Logiin
 if (isset($data['email']) && isset($data['password']) && !isset($data['nombre'])) {
     $email = trim($data['email'] ?? '');
     $password = trim($data['password'] ?? '');
@@ -53,7 +53,7 @@ if (isset($data['email']) && isset($data['password']) && !isset($data['nombre'])
     }
 }
 
-// **Registro de usuario**
+// register
 $nombre = trim($data['nombre'] ?? '');
 $email = trim($data['email'] ?? '');
 $telefono = trim($data['telefono'] ?? '');
@@ -61,13 +61,13 @@ $direccion = trim($data['direccion'] ?? '');
 $password = trim($data['password'] ?? '');
 $rol = trim($data['rol'] ?? 'cliente');
 
-// Validación de datos vacíos
+
 if (empty($nombre) || empty($email) || empty($telefono) || empty($direccion)) {
     echo json_encode(["message" => "Por favor, completa todos los campos"]);
     exit;
 }
 
-// Validación adicional: Verificar si el correo ya existe
+// Restriccion verifica si el correo ya existe
 try {
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
     $stmt->execute([$email]);

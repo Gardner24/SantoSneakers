@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generar Factura | SantoSneakers</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/factura.js" defer></script>
+</head>
+<body>
+    <h1>Generar Factura</h1>
+    <form id="facturaForm">
+        <label for="idProducto">Seleccionar Producto:</label>
+        <select id="idProducto" required></select>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" min="1" required>
+
+        <label for="metodoPago">Método de Pago:</label>
+        <select id="metodoPago" required>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta">Tarjeta</option>
+            <option value="transferencia">Transferencia</option>
+        </select>
+
+        <button type="submit">Generar Factura</button>
+    </form>
+</body>
+</html>

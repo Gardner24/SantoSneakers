@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #13181f;
+  font-family: "Playfair Display", serif;
+}
+main {
+  min-height: 100vh;
+}
+body {
+  font-family: "Playfair Display", serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #13181f;
+  z-index: 1000;
+  padding: 0 1em;
+  margin-top: 4em;
+}
+
+.ul-options1,
+.ul-options2,
+.ul-options3 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ul-options1 {
+  list-style: none;
+  display: flex;
+}
+
+.ul-options1 li {
+  color: aliceblue;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  margin-left: 2em;
+}
+
+.ul-options2 {
+  justify-content: center;
+  gap: 3em;
+  display: flex;
+  text-wrap: wrap;
+}
+
+.ul-options2 a {
+  color: #777e99;
+  font-size: 1.5em;
+  text-decoration-line: none;
+}
+
+.ul-options3 {
+  justify-content: flex-end;
+  gap: 1.2em;
+  margin-right: 3em;
+}
+/* --------------Botones Log-Sign-------------- */
+
+.btn-login,
+.btn-signup {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  border-style: solid;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.2em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  height: 2.5em;
+  width: 10em;
+}
+
+.btn-login {
+  background-color: #11161c;
+  color: #ffffff;
+  border-width: 2px;
+  border-color: #ffffff;
+  font-weight: bolder;
+}
+.btn-signup {
+  background-color: #ffffff;
+  color: #11161c;
+  border-width: 2px;
+  border-color: #111;
+  font-weight: bolder;
+}
+
+/* --------------Buscar Input-------------- */
+.img-lupa {
+  width: 25px;
+  height: 25px;
+  margin-left: 2em;
+}
+.li-buscar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.in-buscar {
+  width: 10em;
+  height: 2em;
+  font-size: 1.3em;
+  border-radius: 1em;
+  border-width: 0.1em;
+  border-style: solid;
+  outline: none;
+  border-color: #ffffff;
+  background-color: #11161c;
+  font-family: "Playfair Display", serif;
+  padding-left: 1em;
+  color: #ffffff;
+}
+.in-buscar:focus {
+  border-color: #ffffff;
+  outline: none;
+}
+.in-buscar::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+/* Contenedor de las imágenes */
+
+.div-imgs {
+  display: grid;
+  grid-template-columns: 1fr 40em;
+  width: 100%;
+  height: 950px;
+  align-items: center;
+  box-sizing: content-box;
+}
+.img-container {
+  width: 100%;
+  height: 90%;
+}
+
+.img-style {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin-top: 4em;
+}
+
+/* CAROUSEEEEL */
+
+.carousel-control-prev,
+.carousel-control-next {
+  margin: -10em;
+}
+
+#carousel-images img {
+  width: 100%;
+  object-fit: cover;
+  height: 450px;
+  border-radius: 1.5em;
+  transition: transform 1s ease;
+}
+
+#carousel-images img:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+}
+
+.carousel-section {
+  margin-top: 2em;
+  background-color: #13181f;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+/* Textos de carousel */
+
+.h3-imgs {
+  text-align: start;
+  font-size: 1.5rem;
+  margin-top: 0.5em;
+  color: #ffffff;
+}
+
+.p-imgs {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #cccccc;
+}
+
+.h4-imgs {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ffffff;
+  text-align: end;
+}
+
+.div-text {
+  text-decoration: line-through;
+  color: #ffffff;
+  letter-spacing: 0.5em;
+  margin: 3em 0 0 5em;
+  font-weight: bold;
+}
+
+@media (max-width: 1100px) {
+  .ul-options1,
+  .ul-options2 {
+    display: none;
+  }
+
+  .ul-options3 {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+  }
+}

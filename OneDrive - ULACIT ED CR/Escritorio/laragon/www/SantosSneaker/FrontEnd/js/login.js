@@ -5,7 +5,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value.trim();
 
     if (!email || !password) {
-        alert("Por favor, completa todos los campos");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos vacíos',
+            text: 'Por favor, completa todos los campos.',
+            confirmButtonText: 'Aceptar'
+        });
         return;
     }
 
@@ -14,27 +19,40 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
     })
-    .then(response => response.text())  
-    .then(text => {
-        console.log("Respuesta completa del servidor:", text); 
-        try {
-            const data = JSON.parse(text);
-            if (data.message === "Inicio de sesión exitoso") {
-                alert("Bienvenido, " + data.user.nombre);
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire({
+                icon: "success",
+                title: "Inicio de sesión exitoso",
+                text: "¡Bienvenido!",
+                confirmButtonText: "Aceptar"
+            }).then(() => {
+                // Redirigir al rol correspondiente
                 if (data.user.rol === "admin") {
                     window.location.href = "panelAdmin.html";
                 } else if (data.user.rol === "vendedor") {
                     window.location.href = "panelVendedor.html";
-                } else {
-                    window.location.href = "index.php";
+                } else if (data.user.rol === "cliente") {
+                    window.location.href = "menuPrincipal.html";  // Redirige aquí
                 }
-            } else {
-                alert(data.message);
-            }
-        } catch (error) {
-            console.error("Error al analizar JSON:", error);
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: data.message,
+                confirmButtonText: "Aceptar"
+            });
         }
     })
-    .catch(error => console.error("Error en el inicio de sesión:", error));
-     
+    .catch(error => {
+        console.error("Error en el inicio de sesión:", error);
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "No se pudo conectar con el servidor.",
+            confirmButtonText: "Aceptar"
+        });
+    });
 });

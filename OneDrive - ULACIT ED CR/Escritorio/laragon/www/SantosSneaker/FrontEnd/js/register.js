@@ -43,3 +43,4 @@ function mostrarMensaje(mensaje, tipo) {
         mensajeContainer.remove();
     }, 4000); 
 }
+
